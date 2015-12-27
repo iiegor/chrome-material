@@ -23,7 +23,7 @@ build_script:
   - node --version
   - npm --version
   - cd %APPVEYOR_BUILD_FOLDER%
-  - npm build:win32
+  - npm run build:win32
 
 test: off
 
