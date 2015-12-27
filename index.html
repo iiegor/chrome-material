@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <!-- Polymer imports -->
+    <script>Polymer = {dom: 'shadow'};</script>
+    <link rel="import" href="elements/browser-topbar/browser-topbar.html">
+    <link rel="import" href="elements/browser-header/browser-header.html">
+    <link rel="import" href="elements/browser-header-navbar/browser-header-navbar.html">
+    <link rel="import" href="elements/browser-content/browser-content.html">
+  
+    <!-- Native styles -->
+    <link rel="stylesheet" href="chrome://resources/css/text_defaults.css">
+    <link rel="stylesheet" href="chrome://resources/css/roboto.css">
+
+    <!-- App global resources -->
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="index.js"></script>
+  </head>
+
+  <body>
+    <browser-topbar></browser-topbar>
+    <browser-header>
+      <browser-header-navbar></browser-header-navbar>
+    </browser-header>
+
+    <browser-content></browser-content>
+  </body>
+</html>

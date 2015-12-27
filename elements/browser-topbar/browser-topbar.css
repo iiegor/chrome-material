@@ -1,0 +1,11 @@
+:host {
+  display: block;
+  border-bottom: 0;
+  height: 25px;
+  background-color: #386FD3;
+  -webkit-app-region: drag;
+}
+
+iron-icon {
+  color: #2B59A7;
+}

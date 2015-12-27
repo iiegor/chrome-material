@@ -1,0 +1,37 @@
+<link rel="import" href="chrome://resources/polymer/v1_0/polymer/polymer.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/iron-icons/iron-icons.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/paper-icon-button/paper-icon-button.html">
+
+<dom-module id="browser-header">
+  <link rel="import" type="css" href="browser-header.css">
+
+  <template>
+    <div class="inner">
+      <div id="left-actions">
+        <iron-icon icon="arrow-back" disabled></iron-icon>
+        <iron-icon icon="arrow-forward" disabled></iron-icon>
+
+        <paper-icon-button icon="refresh" tabindex="-1" on-click="handleRefresh" class="refresh"></paper-icon-button>
+      </div>
+
+      <div class="search">
+        <div class="search-page">
+          <iron-icon icon="http"></iron-icon>
+        </div>
+        
+        <span class="protocol"></span>
+        <input class="search-input" type="search" placeholder="google.com">
+      </div>
+
+      <div id="right-actions">
+        <paper-icon-button icon="star" class="favorite"></paper-icon-button>
+
+        <paper-icon-button icon="more-vert" class="dropdown-trigger"></paper-icon-button>
+      </div>
+    </div>
+
+    <content></content>
+  </template>
+</dom-module>
+
+<script src="browser-header.js"></script>

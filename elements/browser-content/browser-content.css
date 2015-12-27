@@ -1,0 +1,11 @@
+:host {
+  display: block;
+}
+
+#view {
+  position: absolute;
+  display: block;
+  height: calc(100% - 155px);
+  width: 100%;
+  z-index: 1;
+}

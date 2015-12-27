@@ -1,0 +1,5 @@
+(() => {
+  Polymer({
+    is: 'browser-topbar'
+  });
+})();
