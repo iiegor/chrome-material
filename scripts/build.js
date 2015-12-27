@@ -2,6 +2,7 @@ var platform = process.argv[2].replace('--', '');
 var packager = require('electron-packager');
 var package = require('../package.json');
 
+// TODO: Remove useless files
 var opts = {
   dir: '.',
   name: package.productName,
