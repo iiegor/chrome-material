@@ -5,7 +5,6 @@
   "main": "browser.js",
   "author": "Iegor Azuaga <dextrackmedia@gmail.com>",
   "license": "MIT",
-  "dependencies": {},
   "devDependencies": {
     "electron-prebuilt": "^0.36.2"
   },
