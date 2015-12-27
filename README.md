@@ -1,4 +1,4 @@
-# Chrome Material Design
+# Chrome Material Design [![Build status](https://ci.appveyor.com/api/projects/status/xampn32cnaqp8x87?svg=true)](https://ci.appveyor.com/project/iiegor/chrome-material)
 
 <div style="text-align:center">
   <img src="http://i.imgur.com/KFwT19w.png">
