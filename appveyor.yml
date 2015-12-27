@@ -1,0 +1,34 @@
+init:
+  - git config --global core.autocrlf input
+
+version: "{build}"
+
+clone_folder: c:\projects\chrome-material
+
+branches:
+  except:
+    - master
+
+cache:
+  - "node_modules -> package.json"
+  - "src\\node_modules -> src\\package.json"
+  - "%APPDATA%\\npm-cache"
+
+install:
+  - npm install -g npm@2
+  - set PATH=%APPDATA%\npm;%PATH%
+  - npm install
+
+build_script:
+  - node --version
+  - npm --version
+  - cd %APPVEYOR_BUILD_FOLDER%
+  - npm run build:win32
+
+test: off
+
+artifacts:
+  - path: bin\*
+
+# deploy:
+# .......

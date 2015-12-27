@@ -29,7 +29,7 @@ app.on('ready', function() {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadURL('file://' + process.cwd() + '/index.html');
+  mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Expose DevTools on dev mode
   if (process.argv.indexOf('--dev') !== -1) {
