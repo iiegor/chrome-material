@@ -6,7 +6,7 @@
 
 ## Features
 - Lightweight binary.
-- Use of chrome resources which are packaged in the newest electron versions.
+- Use of packaged chromium resources.
 - Material design.
 - Highly customizable.
 - No external dependencies.

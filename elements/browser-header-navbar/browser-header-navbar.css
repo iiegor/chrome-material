@@ -6,7 +6,7 @@
 
 paper-tabs {
   display: inline-flex;
-  height: 40px;
+  height: 100%;
 }
 
 paper-tabs::shadow #selectionBar {
@@ -29,6 +29,8 @@ paper-tab .close {
 
 paper-tab.iron-selected {
   font-weight: 600;
+}paper-tab .tab-content > a {
+    height: auto;
 }
 
 .divider {

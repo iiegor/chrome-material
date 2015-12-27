@@ -1,6 +1,8 @@
 'use strict';
 
 (() => {
+  const url = require('url');
+
   Polymer({
     is: 'browser-header',
 
@@ -19,6 +21,23 @@
       } else {
         el.classList.add('marked');
       }
+    },
+
+    handleNavigate(e) {
+      if (e.keyCode !== 13)
+        return;
+
+      let location = url.parse(e.target.value);
+
+      if (!location.protocol) {
+        location.protocol = 'http:';
+        location.hostname = location.host = location.href;
+        location.href = `${location.protocol}//${location.href}/`;
+        location.path = '/';
+        location.pathname = '/';
+      }
+
+      document.querySelector('browser-content').navigateTo(location.format());
     }
   });
 })();
