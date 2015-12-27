@@ -3,6 +3,9 @@
     is: 'browser-content',
 
     ready() {
+      // Correct the useragent
+      this.$.view.setAttribute('useragent', navigator.userAgent.replace('Chrome/0.0.1 ', ''))
+
       this._bindViewEvents();
     },
 
