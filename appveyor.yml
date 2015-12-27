@@ -6,8 +6,8 @@ version: "{build}"
 clone_folder: c:\projects\chrome-material
 
 branches:
-  except:
-    - master
+  only:
+    - release
 
 cache:
   - "node_modules -> package.json"
