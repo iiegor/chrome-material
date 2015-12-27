@@ -1,3 +1,5 @@
+'use strict';
+
 (() => {
   Polymer({
     is: 'browser-header',
@@ -7,6 +9,16 @@
 
       // NOTE: Maybe there is a better way?
       document.querySelector('browser-content::shadow #view').reload();
+    },
+
+    handleFavorite(e) {
+      let el = e.target;
+
+      if (el.classList.contains('marked')) {
+        el.classList.remove('marked');
+      } else {
+        el.classList.add('marked');
+      }
     }
   });
 })();

@@ -31,6 +31,7 @@
       }
     },
 
+    // FIXME: Selected tab is lost when closing other 
     handleClose(e) {
       let index = e.model.index;
 
