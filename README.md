@@ -9,6 +9,7 @@
 - Use of native resources packaged in the newest electron versions.
 - Material design.
 - Highly customizable.
+- No external dependencies.
 
 *... and more soon*
 
