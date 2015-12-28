@@ -20,17 +20,15 @@
         </div>
         
         <span class="protocol"></span>
-        <input class="search-input" type="search" placeholder="google.com">
+        <input class="search-input" type="search" value="google.com" on-keydown="handleNavigate">
       </div>
 
       <div id="right-actions">
-        <paper-icon-button icon="star" class="favorite"></paper-icon-button>
+        <paper-icon-button icon="star" class="favorite" on-click="handleFavorite"></paper-icon-button>
 
         <paper-icon-button icon="more-vert" class="dropdown-trigger"></paper-icon-button>
       </div>
     </div>
-
-    <content></content>
   </template>
 </dom-module>
 

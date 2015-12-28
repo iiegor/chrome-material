@@ -22,3 +22,16 @@ body {
 body.blur browser-topbar {
   background-color: #E9E9E9;
 }
+
+body.blur browser-topbar::shadow iron-icon {
+  color: #BABABA;
+}
+
+body.win32 browser-topbar {
+  flex-direction: row-reverse;
+}
+
+body.win32 browser-topbar::shadow iron-icon:not(:first-of-type) {
+  margin-left: 0;
+  margin-right: -2px;
+}

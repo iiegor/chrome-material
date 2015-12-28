@@ -1,7 +1,7 @@
 {
   "name": "chrome-material",
   "productName": "Chrome",
-  "version": "0.0.1",
+  "version": "0.0.2-dev",
   "description": "",
   "main": "browser.js",
   "author": "Iegor Azuaga <dextrackmedia@gmail.com>",
@@ -12,7 +12,7 @@
     "electron-prebuilt": "^0.36.2"
   },
   "scripts": {
-    "start": "electron . --dev",
+    "start": "electron . --dev --enable-logging --remote-debugging-port=9222",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:win32": "node scripts/build.js --win32"
   },

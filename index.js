@@ -1,17 +1,21 @@
 (() => {
-  const remote = require('electron').remote;
-  const BrowserWindow = remote.getCurrentWindow();
+  const package = require('./package.json');
+  const ipc = require('electron').ipcRenderer;
+
+  window.onload = function() {
+    document.body.classList.add(process.platform);
+  }
   
   function init() {
-    // Bind essential browser events
-    // FIXME: This throws an exception sometimes
-    /*BrowserWindow.on('blur', function() {
-      document.body.classList.add('blur');
-    })
+    process.versions.app = package.version;
 
-    BrowserWindow.on('focus', function() {
+    ipc.on('blur', function() {
+      document.body.classList.add('blur');
+    });
+
+    ipc.on('focus', function() {
       document.body.classList.remove('blur');
-    })*/
+    });
   }
 
   init();
