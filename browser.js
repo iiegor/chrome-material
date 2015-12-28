@@ -4,6 +4,7 @@ const electron = require('electron');
 const app = electron.app;  // Module to control application life.
 const BrowserWindow = electron.BrowserWindow;  // Module to create native browser window.
 const globalShortcut = electron.globalShortcut; // Module to register global keyboard shortcuts.
+const path = require('path'); // Provide system path utilities
 
 let mainWindow;
 
@@ -19,6 +20,18 @@ app.on('window-all-closed', function() {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 app.on('ready', function() {
+  const protocol = electron.protocol; // Module to register custom protocols or incercept existing ones.
+
+  // Register internal:// protocol
+  protocol.registerFileProtocol('internal', function(request, callback) {
+    let relativePath = path.normalize(request.url.substr(11));
+    
+    callback(path.join(__dirname, 'internal', relativePath));
+  }, function(error) {
+    if (error)
+      console.error('Failed to register protocol')
+  });
+
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1200,

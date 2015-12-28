@@ -27,6 +27,7 @@
       if (e.keyCode !== 13)
         return;
 
+      // TODO: Redirect chrome:// locations to internal files.
       let location = url.parse(e.target.value);
 
       if (!location.protocol) {

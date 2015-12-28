@@ -1,4 +1,6 @@
 (() => {
+  const path = require('path');
+
   Polymer({
     is: 'browser-content',
 
@@ -13,13 +15,18 @@
 
     ready() {
       // Correct the useragent
-      this.$.view.setAttribute('useragent', navigator.userAgent.replace('Chrome/0.0.1 ', ''))
+      this.$.view.setAttribute('useragent', navigator.userAgent.replace('Chrome/0.0.1 ', '').replace('Chrome/0.0.1-dev ', ''));
+      this.$.view.setAttribute('preload', path.join(__dirname, '/internal/webview/main.js'));
 
       this._bindViewEvents();
     },
 
     navigateTo(url) {
       this.$.view.setAttribute('src', url);
+    },
+
+    handleContext(e) {
+      console.error('Unhandled context menu');
     },
 
     _bindViewEvents() {
@@ -55,7 +62,7 @@
         switch (e.errorCode) {
           // ERR_NAME_NOT_RESOLVED
           case -105:
-            this.$.view.setAttribute('src', 'file://' + __dirname + '/internal/error/index.html')
+            this.$.view.setAttribute('src', 'internal://pages/error.html')
             break;
         }
       });
