@@ -67,6 +67,7 @@ iron-icon[disabled] {
   color: #6F8499;
   width: 100%;
   height: 32px;
+  font-size: 14px;
 }
 
 .search-input:focus {

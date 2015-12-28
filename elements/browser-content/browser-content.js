@@ -34,24 +34,28 @@
         console.log('view dom ready')
       });
 
-      this.$.view.addEventListener('page-title-updated', function(a) {
-        document.title = a.title;
+      this.$.view.addEventListener('page-title-updated', function(e) {
+        document.title = e.title;
+      });
+
+      this.$.view.addEventListener('page-favicon-updated', (e) => {
+        document.querySelector('browser-header-navbar').handleFaviconUpdate(e.favicons)
       });
 
       /**
        * Loading events
        */
-      this.$.view.addEventListener('did-start-loading', (a) => {
+      this.$.view.addEventListener('did-start-loading', (e) => {
         console.debug('Started loading...');
 
         this.isLoading = true;
       });
 
-      this.$.view.addEventListener('did-stop-loading', function(a) {
+      this.$.view.addEventListener('did-stop-loading', function(e) {
         console.debug('Stop loading');
       });
 
-      this.$.view.addEventListener('did-finish-load', (a) => {
+      this.$.view.addEventListener('did-finish-load', (e) => {
         console.debug('Finish load');
 
         this.isLoading = false;

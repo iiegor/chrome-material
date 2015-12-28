@@ -9,7 +9,7 @@
   <template>
     <paper-tabs id="tabs" selected="0" noink>
       <template is="dom-repeat" items="{{tabs}}">
-        <paper-tab><span>{{item.title}}</span> <iron-icon icon="close" class="close" on-click="handleClose"></iron-icon></paper-tab>
+        <paper-tab><span><iron-icon src="{{item.favicon}}" class="favicon"></iron-icon> <span class="title">{{item.title}}</span></span> <iron-icon icon="close" class="close" on-click="handleClose"></iron-icon></paper-tab>
       </template>
     </paper-tabs>
     

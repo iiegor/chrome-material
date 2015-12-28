@@ -14,23 +14,18 @@ paper-tabs::shadow #selectionBar {
 }
 
 paper-tab  {
-  padding: 0 5px 0 20px;
+  padding: 0 5px 0 10px;
   color: #58666F;
 }
 
-paper-tab iron-icon {
-  margin-left: 26px;
-}
-
 paper-tab .close {
+  margin-left: 26px;
   height: 18px;
   right: 0
 }
 
 paper-tab.iron-selected {
   font-weight: 600;
-}paper-tab .tab-content > a {
-    height: auto;
 }
 
 .divider {
@@ -54,4 +49,14 @@ paper-tab.iron-selected {
   vertical-align: bottom;
   height: 15px;
   color: #586671;
+}
+
+.title {
+  vertical-align: middle;
+}
+
+.favicon {
+  margin-right: 5px;
+  --iron-icon-height: 18px;
+  --iron-icon-width: 18px;
 }

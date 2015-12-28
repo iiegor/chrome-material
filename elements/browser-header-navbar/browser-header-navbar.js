@@ -11,10 +11,11 @@
         readOnly: false
       },
 
-      activeTab: {
+      activeTabIndex: {
         type: Number,
         notify: true,
-        readOnly: false
+        readOnly: false,
+        value: 0
       }
     },
 
@@ -27,7 +28,8 @@
     createPage(title, href) {
       return {
         title: title,
-        location: href
+        location: href,
+        favicon: ''
       }
     },
 
@@ -37,7 +39,6 @@
 
       console.debug(`Closing tab with index ${index}`);
       this.splice('tabs', index, 1);
-      this.$.tabs.selectedValues = [0];
     },
 
     handleNewTab() {
@@ -45,6 +46,13 @@
 
       // set as selected
       this.$.tabs.selected = this.tabs.length - 1;
+    },
+
+    handleFaviconUpdate(favicons) {
+      let favicon = favicons[0];
+
+      console.debug(`Updating favicon to ${favicon}`)
+      this.set(`tabs.${this.activeTabIndex}.favicon`, favicon)
     }
   });
 })();

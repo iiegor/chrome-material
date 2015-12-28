@@ -1,11 +1,19 @@
 :host {
-  display: block;
+  display: flex;
   border-bottom: 0;
   height: 25px;
+  align-items: center;
   background-color: #386FD3;
   -webkit-app-region: drag;
 }
 
 iron-icon {
+  margin: 0;
+  padding: 0;
   color: #2B59A7;
+  height: 21px;
+}
+
+iron-icon:not(:first-of-type) {
+  margin-left: -2px;
 }
