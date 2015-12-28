@@ -5,15 +5,21 @@
   align-items: center;
   background-color: #386FD3;
   -webkit-app-region: drag;
+
 }
 
 iron-icon {
+  -webkit-app-region: no-drag;
   margin: 0;
   padding: 0;
   color: #2B59A7;
-  height: 21px;
+  height: 19px;
 }
 
 iron-icon:not(:first-of-type) {
   margin-left: -2px;
+}
+
+iron-icon:active {
+  color: #2E4F88;
 }

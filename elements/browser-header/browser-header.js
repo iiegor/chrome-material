@@ -10,7 +10,7 @@
       console.debug('Refresh event fired');
 
       // NOTE: Maybe there is a better way?
-      document.querySelector('browser-content::shadow #view').reload();
+      document.querySelector('browser-content::shadow div.iron-selected > #view').reload();
     },
 
     handleFavorite(e) {
@@ -27,7 +27,6 @@
       if (e.keyCode !== 13)
         return;
 
-      // TODO: Redirect chrome:// locations to internal files.
       let location = url.parse(e.target.value);
 
       if (!location.protocol) {

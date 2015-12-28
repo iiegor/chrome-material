@@ -1,10 +1,33 @@
 <link rel="import" href="chrome://resources/polymer/v1_0/polymer/polymer.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/iron-icons/iron-icons.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/iron-pages/iron-pages.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/paper-tabs/paper-tabs.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/paper-button/paper-button.html">
 
 <dom-module id="browser-content">
   <link rel="import" type="css" href="browser-content.css">
 
   <template>
-    <webview id="view" src="https://www.google.com/" on-contextMenu="handleContext" allowpopups />
+    <nav>
+      <paper-tabs id="tabs" selected="{{activeTab}}" noink>
+        <template is="dom-repeat" items="{{tabs}}" as="tab">
+          <paper-tab>
+            <span><iron-icon src="{{tab.favicon}}" class="favicon"></iron-icon> <span class="title">{{tab.title}}</span></span>
+
+            <iron-icon icon="close" class="close" on-click="handleClose"></iron-icon>
+          </paper-tab>
+        </template>
+      </paper-tabs>
+      
+      <span class="divider"></span>
+      <paper-button class="new-tab" on-click="handleNewTab"><iron-icon icon="add-circle"></iron-icon> Add tab</paper-button>
+    </nav>
+
+    <iron-pages selected="{{activeTab}}">
+      <template is="dom-repeat" items="{{tabs}}">
+        <div><webview id="view" src="{{item.location}}" on-contextMenu="handleContext" useragent="{{item.userAgent}}" allowpopups /></div>
+      </template>
+    </iron-pages>
   </template>
 </dom-module>
 

@@ -1,3 +1,5 @@
+'use strict';
+
 (() => {
   const path = require('path');
 
@@ -5,71 +7,68 @@
     is: 'browser-content',
 
     properties: {
-      isLoading: {
-        type: Boolean,
-        notify: false,
-        readOnly: false,
-        value: false
-      } 
+      tabs: {
+        type: Array,
+        notify: true
+      },
+
+      activeTab: {
+        type: Number,
+        notify: true
+      }
     },
 
     ready() {
-      // Remove application version from userAgent
-      this.$.view.setAttribute('useragent', navigator.userAgent.replace(`Chrome/${process.versions.app} `, ''));
-      this.$.view.setAttribute('preload', path.join(__dirname, '/internal/webview/main.js'));
+      this.tabs = [this._createTab('Google', 'http://google.com')];
+      this._setSelected(0);
+    },
 
-      this._bindViewEvents();
+    _createTab(title, href) {
+      let tab = {
+        title: title,
+        location: href,
+        favicon: '',
+        userAgent: navigator.userAgent.replace(`Chrome/${process.versions.app} `, '')
+      };
+
+      return tab
+    },
+
+    _setSelected(index) {
+      setImmediate(() => {
+        this.$.tabs.select(index);
+      });
     },
 
     navigateTo(url) {
-      this.$.view.setAttribute('src', url);
+      this.currentView.setAttribute('src', url);
     },
 
-    handleContext(e) {
-      console.error('Unhandled context menu');
+    handleNewTab() {
+      let tab = this._createTab('New tab', 'internal://pages/newtab.html');
+
+      this.push('tabs', tab);
+
+      // set as selected
+      this._setSelected(this.tabs.length - 1);
     },
 
-    _bindViewEvents() {
-      this.$.view.addEventListener('dom-ready', function() {
-        console.log('view dom ready')
-      });
+    handleClose(e) {
+      if (this.tabs.length === 1) {
+        document.querySelector('browser-topbar::shadow iron-icon[icon="cancel"]').click();
+        return;
+      }
 
-      this.$.view.addEventListener('page-title-updated', function(e) {
-        document.title = e.title;
-      });
+      let index = e.model.index;
 
-      this.$.view.addEventListener('page-favicon-updated', (e) => {
-        document.querySelector('browser-header-navbar').handleFaviconUpdate(e.favicons)
-      });
+      console.debug(`Closing tab with index ${index}`);
+      this.splice('tabs', index, 1);
 
-      /**
-       * Loading events
-       */
-      this.$.view.addEventListener('did-start-loading', (e) => {
-        console.debug('Started loading...');
+      this._setSelected(index - 1);
+    },
 
-        this.isLoading = true;
-      });
-
-      this.$.view.addEventListener('did-stop-loading', function(e) {
-        console.debug('Stop loading');
-      });
-
-      this.$.view.addEventListener('did-finish-load', (e) => {
-        console.debug('Finish load');
-
-        this.isLoading = false;
-      });
-
-      this.$.view.addEventListener('did-fail-load', (e) => {
-        // TODO: Catch the rest of error codes :P
-        switch (e.errorCode) {
-          // ERR_NAME_NOT_RESOLVED
-          case -105:
-            this.$.view.setAttribute('src', 'internal://pages/error.html')
-            break;
-        }
-      });
+    get currentView() {
+      return this.$$('div.iron-selected > #view');
     }
   });
 })();

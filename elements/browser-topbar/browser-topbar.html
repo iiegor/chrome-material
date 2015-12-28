@@ -5,9 +5,9 @@
   <link rel="import" type="css" href="browser-topbar.css">
 
   <template>
-    <iron-icon icon="cancel"></iron-icon>
-    <iron-icon icon="add-circle"></iron-icon>
-    <iron-icon icon="arrow-drop-down-circle"></iron-icon>
+    <iron-icon icon="cancel" on-click="handleExit"></iron-icon>
+    <iron-icon icon="add-circle" on-click="handleMaximize"></iron-icon>
+    <iron-icon icon="arrow-drop-down-circle" on-click="handleMinimize"></iron-icon>
   </template>
 </dom-module>
 
