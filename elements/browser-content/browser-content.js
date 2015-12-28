@@ -38,6 +38,8 @@
       setImmediate(() => {
         this.$.tabs.select(index);
       });
+
+      this.$.tabs.notifyResize();
     },
 
     navigateTo(url) {
