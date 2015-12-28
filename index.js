@@ -1,8 +1,9 @@
 (() => {
-  const remote = require('electron').remote;
-  const BrowserWindow = remote.getCurrentWindow();
+  const package = require('./package.json');
   
   function init() {
+    process.versions.app = package.version;
+    
     // Bind essential browser events
     // FIXME: This throws an exception sometimes
     /*BrowserWindow.on('blur', function() {

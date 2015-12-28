@@ -14,8 +14,8 @@
     },
 
     ready() {
-      // Correct the useragent
-      this.$.view.setAttribute('useragent', navigator.userAgent.replace('Chrome/0.0.1 ', '').replace('Chrome/0.0.1-dev ', ''));
+      // Remove application version from userAgent
+      this.$.view.setAttribute('useragent', navigator.userAgent.replace(`Chrome/${process.versions.app} `, ''));
       this.$.view.setAttribute('preload', path.join(__dirname, '/internal/webview/main.js'));
 
       this._bindViewEvents();
