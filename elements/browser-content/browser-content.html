@@ -8,9 +8,6 @@
   <link rel="import" type="css" href="browser-content.css">
 
   <template>
-<<<<<<< HEAD
-    <webview id="view" src="https://www.google.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36" allowpopups />
-=======
     <nav>
       <paper-tabs id="tabs" selected="{{activeTab}}" noink>
         <template is="dom-repeat" items="{{tabs}}" as="tab">
@@ -31,7 +28,6 @@
         <div><webview id="view" src="{{item.location}}" on-contextMenu="handleContext" useragent="{{item.userAgent}}" allowpopups /></div>
       </template>
     </iron-pages>
->>>>>>> master
   </template>
 </dom-module>
 
