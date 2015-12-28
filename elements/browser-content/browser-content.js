@@ -19,7 +19,9 @@
     },
 
     ready() {
+      // TODO: Restore last session opened tabs
       this.tabs = [this._createTab('Google', 'http://google.com')];
+
       this._setSelected(0);
     },
 
