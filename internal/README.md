@@ -1,2 +1,2 @@
 # internal
-Here are located the internal elements/resources that are rendered into the webview.
+Here are located the internal resources that are exposed via the ``internal://`` protocol.
