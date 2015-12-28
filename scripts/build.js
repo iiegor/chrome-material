@@ -3,7 +3,6 @@ var packager = require('electron-packager');
 var package = require('../package.json');
 var path = require('path');
 
-// TODO: Remove useless files
 var opts = {
   dir: '.',
   name: package.productName,
@@ -16,7 +15,7 @@ var opts = {
   out: 'bin'
 };
 
-if (platform == 'win32' || platform == 'win64') {
+if (platform == 'win32') {
   opts.icon = path.join(__dirname, '..', 'resources', 'chrome.ico');
 } else {
   opts.icon = path.join(__dirname, '..', 'resources', 'chrome.icns');
