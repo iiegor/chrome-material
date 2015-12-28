@@ -30,5 +30,11 @@ test: off
 artifacts:
   - path: bin\*
 
-# deploy:
-# .......
+deploy:
+  provider: GitHub
+  auth_token:
+    secure: FDEPDmc5y196/bX8kaD370vHyQU598nb6TR0XUfUMARTgzRtopoW/eOEphFdMaYv
+  artifact: bin\*
+  draft: true
+  on:
+    branch: release
