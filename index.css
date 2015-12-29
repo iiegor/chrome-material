@@ -35,3 +35,15 @@ body.win32 browser-topbar::shadow iron-icon:not(:first-of-type) {
   margin-left: 0;
   margin-right: -2px;
 }
+
+body.fullscreen browser-topbar,
+body.fullscreen browser-header,
+body.fullscreen browser-content::shadow nav {
+  display: none;
+}
+
+body.fullscreen browser-content::shadow iron-pages div.iron-selected #view {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
