@@ -14,7 +14,8 @@
   "scripts": {
     "start": "electron . --dev --enable-logging --remote-debugging-port=9222",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:win32": "node scripts/build.js --win32"
+    "build:win32": "node scripts/build.js --win32",
+    "build:linux": "node scripts/build.js --linux"
   },
   "private": true
 }
