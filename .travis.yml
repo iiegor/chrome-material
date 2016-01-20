@@ -1,0 +1,59 @@
+matrix:
+  include:
+    - os: linux
+      env: NODE_VERSION=5.1
+
+install:
+  - git clone https://github.com/creationix/nvm.git /tmp/.nvm
+  - source /tmp/.nvm/nvm.sh
+  - nvm install $NODE_VERSION
+  - nvm use $NODE_VERSION
+
+before_script:
+  - chmod +x ./scripts/build.js
+  - chmod +x ./scripts/cibuild
+  - npm install
+
+script:
+  - npm test
+
+before_deploy:
+  - npm run build:linux
+  - npm run build:win32
+  - npm run build:darwin
+  - scripts/cibuild
+
+cache:
+  directories:
+    - node_modules
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
+
+addons:
+  apt:
+    packages:
+    - build-essential
+    - git
+    - fakeroot
+    - wine
+
+deploy:
+  provider: releases
+  api_key:
+    secure: SZKl+R2OKbz26s6vqqR3UgX37I4O7jrycJ8MwYfeBUrL79ycHlpCxrKongxa+He+tWxLZIGZES6kZlkCbAUeDuEQSgTEICTchTH8vZfOL2dr88zVoHBfYYTg+MnxVWM1YTbSqWpilNTuEFwl9kIF3ew4wyKOnKCVUbA/1hBe73YbQ7JtCDGrO/s4goi46Y4LX4U9I0Mp8DqDepVHkGNNCEd4rftuKsAhoQY40LdyF785ptMFdVIvzpASyFHFCl4O5qZHCDhkUkLBU8wW1vpBtB/xCkuPwJokiHNR1a8QOvGuf9/Q5ri3wUFU4FF36wQrdr68C2LegsQp1gMQ3NxPG32Y2uQAPrAvzstlP0SLhbDaDnfvvmkGpj1OI8VWc9rxiryYEf9rbaJq3FLHv4OahpNNhe1MmwYpLAx+10vLA8l6JWiXrWD7Jj7U4xXwt2pdETNrdj+cFP9/Hp0zF+bE5acBYyPnRE42asqmfnSXbEu+rIsJt1l1fk0SnX+BZlkS5INW+0H2I+raudt8RZn637bX/iTAoTgW2RpPUXcYp4RBXICJFl+m8btx3KNpUE1XhrMSI/eg09zwgXKcSlfzgXipgHtZn9yGIB7I0miewDWnifbRmN7EcpXYkfisrJR1TpxmFOmHdaxPR3508oHjjHN8mXXizeNMIRRu3Ow2Bik=
+  file:
+    - Chrome-win32-ia32.zip
+    - Chrome-win32-x64.zip
+    - Chrome-linux-ia32.zip
+    - Chrome-linux-x64.zip
+    - Chrome-darwin-x64.zip
+  skip_cleanup: true
+  on:
+    tags: true
+    all_branches: true
+
+after_deploy:
+  - "echo 'Chrome Material Design deployed!'"

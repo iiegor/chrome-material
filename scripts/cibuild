@@ -1,0 +1,28 @@
+#!/usr/bin/env node
+var zipdir = require('zip-dir');
+var path = require('path');
+
+zipdir(path.join(__dirname, 'bin', 'Chrome-win32-ia32'), { saveTo: 'Chrome-win32-ia32.zip' }, function (err, buffer) {
+  // `buffer` is the buffer of the zipped file
+  console.log('App win32-ia32 zipped!');
+});
+
+zipdir(path.join(__dirname, 'bin', 'Chrome-win32-x64'), { saveTo: 'Chrome-win32-x64.zip' }, function (err, buffer) {
+  // `buffer` is the buffer of the zipped file
+  console.log('App win32-x64 zipped!');
+});
+
+zipdir(path.join(__dirname, 'bin', 'Chrome-linux-ia32'), { saveTo: 'Chrome-linux-ia32.zip' }, function (err, buffer) {
+  // `buffer` is the buffer of the zipped file
+  console.log('App linux-ia32 zipped!');
+});
+
+zipdir(path.join(__dirname, 'bin', 'Chrome-linux-x64'), { saveTo: 'Chrome-linux-x64.zip' }, function (err, buffer) {
+  // `buffer` is the buffer of the zipped file
+  console.log('App linux-x64 zipped!');
+});
+
+zipdir(path.join(__dirname, 'bin', 'Chrome-darwin-x64'), { saveTo: 'Chrome-darwin-x64.zip' }, function (err, buffer) {
+  // `buffer` is the buffer of the zipped file
+  console.log('App darwin-x64 zipped!');
+});
