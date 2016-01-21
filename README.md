@@ -1,4 +1,4 @@
-# Chrome Material Design
+# Chrome Material Design [![Build Status](https://travis-ci.org/iiegor/chrome-material.svg?branch=master)](https://travis-ci.org/iiegor/chrome-material)
 
 <div style="text-align:center">
   <img src="http://i.imgur.com/KFwT19w.png">
