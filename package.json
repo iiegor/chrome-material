@@ -9,16 +9,17 @@
   "electronVersion": "0.36.2",
   "devDependencies": {
     "electron-packager": "^5.2.0",
-    "electron-prebuilt": "^0.36.2"
+    "electron-prebuilt": "^0.36.2",
+    "jscs": "^2.8.0",
+    "jshint": "^2.9.1",
+    "zip-dir": "^1.0.0"
   },
   "scripts": {
     "start": "electron . --dev --enable-logging --remote-debugging-port=9222",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jshint elements && jscs elements",
     "build:win32": "node scripts/build.js --win32",
-    "build:linux": "node scripts/build.js --linux"
+    "build:linux": "node scripts/build.js --linux",
+    "build:darwin": "node scripts/build.js --darwin"
   },
-  "private": true,
-  "dependencies": {
-    "zip-dir": "^1.0.0"
-  }
+  "private": true
 }

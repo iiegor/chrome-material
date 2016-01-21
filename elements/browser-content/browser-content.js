@@ -1,8 +1,6 @@
 'use strict';
 
 (() => {
-  const path = require('path');
-
   Polymer({
     is: 'browser-content',
 
@@ -34,7 +32,7 @@
         userAgent: navigator.userAgent.replace(`Chrome/${process.versions.app} `, '')
       };
 
-      return tab
+      return tab;
     },
 
     _setSelected(index) {
@@ -74,11 +72,11 @@
     },
 
     _bindView() {
-      this.currentView.addEventListener('did-start-loading', e => {
+      this.currentView.addEventListener('did-start-loading', () => {
         this.set(`tabs.${this.activeTab}.isLoading`, true);
       });
 
-      this.currentView.addEventListener('did-stop-loading', e => {
+      this.currentView.addEventListener('did-stop-loading', () => {
         this.set(`tabs.${this.activeTab}.isLoading`, false);
       });
 
@@ -102,11 +100,11 @@
         this.set(`tabs.${this.activeTab}.favicon`, e.favicons[0]);
       });
 
-      this.currentView.addEventListener('enter-html-full-screen', e => {
+      this.currentView.addEventListener('enter-html-full-screen', () => {
         document.body.classList.add('fullscreen');
       });
 
-      this.currentView.addEventListener('leave-html-full-screen', e => {
+      this.currentView.addEventListener('leave-html-full-screen', () => {
         document.body.classList.remove('fullscreen');
       });
     },

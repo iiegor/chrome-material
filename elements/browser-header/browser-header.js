@@ -6,7 +6,7 @@
   Polymer({
     is: 'browser-header',
 
-    handleRefresh(e) {
+    handleRefresh() {
       console.debug('Refresh event fired');
 
       // NOTE: Maybe there is a better way?
@@ -24,8 +24,9 @@
     },
 
     handleNavigate(e) {
-      if (e.keyCode !== 13)
+      if (e.keyCode !== 13) {
         return;
+      }
 
       let location = url.parse(e.target.value);
 
