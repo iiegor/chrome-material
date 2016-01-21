@@ -1,7 +1,7 @@
 {
   "name": "chrome-material",
   "productName": "Chrome",
-  "version": "0.0.2-dev",
+  "version": "0.0.3-dev",
   "description": "",
   "main": "browser.js",
   "author": "Iegor Azuaga <dextrackmedia@gmail.com>",
