@@ -11,8 +11,7 @@
     "electron-packager": "^5.2.0",
     "electron-prebuilt": "^0.36.2",
     "jscs": "^2.8.0",
-    "jshint": "^2.9.1",
-    "zip-dir": "^1.0.0"
+    "jshint": "^2.9.1"
   },
   "scripts": {
     "start": "electron . --dev --enable-logging --remote-debugging-port=9222",
