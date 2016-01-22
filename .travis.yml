@@ -20,11 +20,13 @@ before_deploy:
   - npm run build:linux
   - npm run build:win32
   - npm run build:darwin
-  - zip -r Chrome-win32-ia32.zip ./bin/Chrome-win32-ia32
-  - zip -r Chrome-win32-x64.zip ./bin/Chrome-win32-x64
-  - zip -r Chrome-linux-ia32.zip ./bin/Chrome-linux-ia32
-  - zip -r Chrome-linux-x64.zip ./bin/Chrome-linux-x64
-  - zip -r Chrome-darwin-x64.zip ./bin/Chrome-darwin-x64
+  - cd bin
+  - zip -r ../Chrome-win32-ia32.zip ./Chrome-win32-ia32
+  - zip -r ../Chrome-win32-x64.zip ./Chrome-win32-x64
+  - zip -r ../Chrome-linux-ia32.zip ./Chrome-linux-ia32
+  - zip -r ../Chrome-linux-x64.zip ./Chrome-linux-x64
+  - zip -r ../Chrome-darwin-x64.zip ./Chrome-darwin-x64
+  - cd ..
 
 cache:
   directories:
