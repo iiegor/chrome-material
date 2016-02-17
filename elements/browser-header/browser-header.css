@@ -15,6 +15,14 @@
 }
 
 /**
+ * Common
+ */
+paper-menu-button,
+paper-icon-button {
+  cursor: default;
+}
+
+/**
  * Icons
  */
 iron-icon,
@@ -70,4 +78,22 @@ iron-icon[disabled] {
 
 .search-input:focus {
   outline: none;
+}
+
+/**
+ * Paper menu
+ */
+paper-menu-button {
+  padding: 0;
+}
+
+paper-menu-button paper-item {
+  text-align: left;
+  min-width: 100px;
+  min-height: 34px;
+}
+
+paper-menu-button::shadow iron-dropdown {
+  margin-top: 41px;
+  margin-right: 5px;
 }
