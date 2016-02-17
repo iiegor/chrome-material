@@ -6,11 +6,6 @@
   const Menu = remote.Menu;
   const MenuItem = remote.MenuItem;
 
-  var menu = new Menu();
-  menu.append(new MenuItem({ label: 'Settings', click: function() { console.log('item 1 clicked'); } }));
-  menu.append(new MenuItem({ type: 'separator' }));
-  menu.append(new MenuItem({ label: 'Exit' }));
-
   Polymer({
     is: 'browser-header',
 
@@ -32,7 +27,15 @@
     },
 
     handleMore(e) {
-      menu.popup(remote.getCurrentWindow(), e.currentTarget.offsetLeft - 55, e.currentTarget.offsetTop + e.currentTarget.clientHeight + 25);
+      let offsetLeft = e.currentTarget.offsetLeft - 55;
+      let offsetTop = e.currentTarget.offsetTop + e.currentTarget.clientHeight + 25;
+
+      let menu = new Menu();
+      menu.append(new MenuItem({label: 'Settings'}));
+      menu.append(new MenuItem({type: 'separator'}));
+      menu.append(new MenuItem({label: 'Exit'}));
+
+      menu.popup(remote.getCurrentWindow(), offsetLeft, offsetTop);
     },
 
     handleNavigate(e) {
