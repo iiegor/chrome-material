@@ -9,7 +9,7 @@ nav {
   background-color: #F5F5F5;
   z-index: 2;
 
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 paper-tabs {
@@ -72,7 +72,7 @@ paper-tab.iron-selected {
 #view {
   position: absolute;
   display: block;
-  height: calc(100% - 155px);
+  height: calc(100% - 121px);
   width: 100%;
   z-index: 1;
 }

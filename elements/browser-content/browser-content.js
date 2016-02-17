@@ -48,7 +48,7 @@
     },
 
     handleNewTab() {
-      let tab = this._createTab('New tab', 'internal://pages/newtab.html');
+      let tab = this._createTab('New tab', 'internal://pages/new-tab.html');
 
       this.push('tabs', tab);
 
