@@ -20,7 +20,7 @@
   }
 
   #wrapper .logo {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 
   #wrapper .search {
@@ -36,8 +36,18 @@
 </head>
 <body>
   <div id="wrapper">
-    <img class="logo" height="110px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_Google_2013_Official.svg/1024px-Logo_Google_2013_Official.svg.png">
-    <input class="search" placeholder="Search in Google or type a URL">
+    <img class="logo" height="100px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Logo_Google_2013_Official.svg/1024px-Logo_Google_2013_Official.svg.png">
+    <input class="search" placeholder="Search in Google or type a URL" onkeypress="return search(event)">
   </div>
+
+  <script type="text/javascript">
+  function search(evt) {
+    if (evt.keyCode !== 13) {
+      return;
+    }
+
+    // TODO: Do the search
+  }
+  </script>
 </body>
 </html>
