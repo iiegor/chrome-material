@@ -13,5 +13,16 @@
 
 *... and more soon*
 
+## Building
+
+### Requirements
+- Node.js v4.x
+
+### Instructions
+Run ``npm install`` to install all the dependencies.
+Once finished, you will be able to make any changes you want to the source and see them by running ``npm start``.
+
+To finally build it, just run the script for your prefered platform, ``npm run build:[win32,linux,darwin]``.
+
 - - - 
 See the original concept [here](https://www.behance.net/gallery/27368683/Google-Chrome-Material-Concept).
