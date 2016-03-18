@@ -13,6 +13,10 @@
 
 *... and more soon*
 
+## Installing
+
+Download the latest release of ``chrome-material`` at the [releases](https://github.com/iiegor/chrome-material/releases) page, unzip it and run the executable.
+
 ## Building
 
 ### Requirements
