@@ -48,7 +48,13 @@
     },
 
     handleNewTab() {
-      let tab = this._createTab('New tab', 'internal://pages/new-tab.html');
+      let tab;
+
+      if (arguments.length > 0) {
+        tab = this._createTab.apply(null, arguments);
+      } else {
+        tab = this._createTab('New tab', 'internal://pages/new-tab.html');
+      }
 
       this.push('tabs', tab);
 

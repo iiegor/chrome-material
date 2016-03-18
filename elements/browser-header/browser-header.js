@@ -31,9 +31,28 @@
       let offsetTop = e.currentTarget.offsetTop + e.currentTarget.clientHeight + 25;
 
       let menu = new Menu();
-      menu.append(new MenuItem({label: 'Settings'}));
+      menu.append(new MenuItem({
+        label: 'New tab',
+        accelerator: 'CmdOrCtrl+T',
+        click: function() {
+          document.querySelector('browser-content').handleNewTab();
+        }
+      }));
+      menu.append(new MenuItem({
+        label: 'New window',
+        accelerator: 'CmdOrCtrl+N',
+        click: function() {
+          // TODO: Create a new instance of the browser
+        }
+      }));
+      menu.append(new MenuItem({
+        label: 'Settings',
+        click: function() {
+          document.querySelector('browser-content').handleNewTab('Settings', 'internal://pages/settings.html');
+        }
+      }));
       menu.append(new MenuItem({type: 'separator'}));
-      menu.append(new MenuItem({label: 'Exit'}));
+      menu.append(new MenuItem({label: 'Exit', accelerator: 'CmdOrCtrl+Shift+Q'}));
 
       menu.popup(remote.getCurrentWindow(), offsetLeft, offsetTop);
     },
