@@ -18,11 +18,8 @@ script:
 
 before_deploy:
   - npm run build:linux
-  - npm run build:win32
   - npm run build:darwin
   - cd bin
-  - zip -r ../Chrome-win32-ia32.zip ./Chrome-win32-ia32
-  - zip -r ../Chrome-win32-x64.zip ./Chrome-win32-x64
   - zip -r ../Chrome-linux-ia32.zip ./Chrome-linux-ia32
   - zip -r ../Chrome-linux-x64.zip ./Chrome-linux-x64
   - zip -r ../Chrome-darwin-x64.zip ./Chrome-darwin-x64
@@ -43,7 +40,6 @@ addons:
     - build-essential
     - git
     - fakeroot
-    - wine
     - zip
 
 deploy:
@@ -51,8 +47,6 @@ deploy:
   api_key:
     secure: VYOfaGvn1q6ey31cWAL2qcbrfSrjR4cVIUCmGxEODUpXSY+jlYjfY3Tcpa0MJFrKxfUJDIwdOlBahD3+JermHDugefsuJYnAF2JfPhND6o5B79AuRbi/D73fMz4ZJ2PHgW+IYOtW6uhFSnZAUeOcOuojI3+OjR2LNX4b3WkLzoRUF9l6cXjr/Jhc8+08KmC8bmajSaJFzW1PhzYIa8/S3iDhafQBsd1v4h6LD8AYfH86ObZ6wAt5YnWSZWmt1Uo2Zezs5ClUokIxfk5/H49PlGOqB7/RcZr4AukO0ab+te3QYS5XZDS+iAiYWozyvLEPhsxUGT4T9NiC72yuoF0galmbiW3gljnpDkB8S7qNa6tyK3/UT8H1Ey/e5CKKLsxWJtDdZDskGrrhgcsIByy+IBw6o6LS75SqnU/h4uUJx/8kxmCQWSrhEfB2tkRTqPauuK5503tMhz21oLX1KYA5dW/DzGSTufQjiKoI7J9d4VaHhcV5yXaCAsNQsG9cJf7JQyWL7ED4sQYGMDjEZ/JfjJjiWSWUbVU9HuzNAHXPcqa6VouPfEk7CjaifMHFiNnOJcArR5983Q3YLb5gAxPCbOL9PxNUJm8Yvhk74DHtxKNIjQK0GyFejyLu/E7r7YJ768SPcnjqvpUc5ayOPpOmRHuYwPyzvLD5vXG7sSFxsXw=
   file:
-    - Chrome-win32-ia32.zip
-    - Chrome-win32-x64.zip
     - Chrome-linux-ia32.zip
     - Chrome-linux-x64.zip
     - Chrome-darwin-x64.zip
