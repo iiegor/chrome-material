@@ -17,7 +17,7 @@
     },
 
     ready() {
-      // TODO: Restore last session opened tabs
+      // TODO: Restore last session opened tabs (and create an option to disable that)
       this.tabs = [this._createTab('Google', 'http://google.com')];
 
       this._setSelected(0);
@@ -48,13 +48,7 @@
     },
 
     handleNewTab() {
-      let tab;
-
-      if (arguments.length > 0) {
-        tab = this._createTab.apply(null, arguments);
-      } else {
-        tab = this._createTab('New tab', 'internal://pages/new-tab.html');
-      }
+      let tab = this._createTab('New tab', 'https://google.com');
 
       this.push('tabs', tab);
 
@@ -71,9 +65,8 @@
 
       let index = e.model.index;
 
-      console.debug(`Closing tab with index ${index}`);
+      // remove tab and select the previous tab
       this.splice('tabs', index, 1);
-
       this._setSelected(index - 1);
     },
 
@@ -83,6 +76,7 @@
       });
 
       this.currentView.addEventListener('did-stop-loading', () => {
+        console.log('stopped')
         this.set(`tabs.${this.activeTab}.isLoading`, false);
       });
 

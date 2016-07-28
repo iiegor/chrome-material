@@ -3,6 +3,7 @@
 <link rel="import" href="chrome://resources/polymer/v1_0/iron-pages/iron-pages.html">
 <link rel="import" href="chrome://resources/polymer/v1_0/paper-tabs/paper-tabs.html">
 <link rel="import" href="chrome://resources/polymer/v1_0/paper-button/paper-button.html">
+<link rel="import" href="chrome://resources/polymer/v1_0/paper-spinner/paper-spinner.html">
 
 <dom-module id="browser-content">
   <link rel="import" type="css" href="browser-content.css">
@@ -12,7 +13,17 @@
       <paper-tabs id="tabs" selected="{{activeTab}}" noink no-slide>
         <template is="dom-repeat" items="{{tabs}}" as="tab">
           <paper-tab>
-            <span><iron-icon src="{{tab.favicon}}" class="favicon"></iron-icon> <span class="title">{{tab.title}}</span></span>
+            <span>
+              <template is="dom-if" if="{{tab.isLoading}}">
+                <paper-spinner active></paper-spinner>
+              </template>
+
+              <template is="dom-if" if="{{!tab.isLoading}}">
+                <iron-icon src="{{tab.favicon}}" class="favicon"></iron-icon>
+              </template>
+
+              <span class="title">{{tab.title}}</span>
+            </span>
 
             <iron-icon icon="close" class="close" on-click="handleClose"></iron-icon>
           </paper-tab>

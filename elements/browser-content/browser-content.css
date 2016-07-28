@@ -34,6 +34,28 @@ paper-tab.iron-selected {
   font-weight: 600;
 }
 
+paper-spinner {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
+
+  margin-left: -5px;
+
+  /* paper-spinner-lite is not available so... */
+  --paper-spinner-layer-1-color: #699BDA;
+  --paper-spinner-layer-2-color: #699BDA;
+  --paper-spinner-layer-3-color: #699BDA;
+  --paper-spinner-layer-4-color: #699BDA;
+
+  --paper-spinner-stroke-width: 2px;
+}
+
+paper-spinner::shadow #spinnerContainer {
+  width: 50%;
+  height: 50%;
+}
+
 .divider {
   display: inline-block;
   background-color: #C6CACD;
