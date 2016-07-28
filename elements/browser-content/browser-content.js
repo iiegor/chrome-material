@@ -76,7 +76,6 @@
       });
 
       this.currentView.addEventListener('did-stop-loading', () => {
-        console.log('stopped')
         this.set(`tabs.${this.activeTab}.isLoading`, false);
       });
 
