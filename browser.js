@@ -34,6 +34,7 @@ app.on('ready', function() {
   });
 
   // Create the browser window.
+  // TODO: Remember window size.
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
@@ -46,7 +47,7 @@ app.on('ready', function() {
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Expose DevTools on dev mode
-  if (process.argv.indexOf('--dev') !== -1) {
+  if (process.argv.includes('--dev')) {
     globalShortcut.register('ctrl+shift+j', function() {
       mainWindow.webContents.openDevTools();
     });

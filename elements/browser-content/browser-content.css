@@ -15,10 +15,8 @@ nav {
 paper-tabs {
   display: inline-flex;
   height: 100%;
-}
 
-paper-tabs::shadow #selectionBar {
-  background-color: #58666F;
+  --paper-tabs-selection-bar-color: #58666F;
 }
 
 paper-tab  {
@@ -71,8 +69,9 @@ paper-tab.iron-selected {
 
 #view {
   position: absolute;
-  display: block;
+  display: flex;
   height: calc(100% - 121px);
   width: 100%;
   z-index: 1;
+  background-color: #fff;
 }

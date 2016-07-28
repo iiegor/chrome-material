@@ -19,13 +19,10 @@
     handleFavorite(e) {
       let el = e.target;
 
-      if (el.classList.contains('marked')) {
-        el.classList.remove('marked');
-      } else {
-        el.classList.add('marked');
-      }
+      el.classList.toggle('marked');
     },
 
+    // TODO: Fix animation being blocked when menu appears.
     handleMore(e) {
       let offsetLeft = e.currentTarget.offsetLeft - 55;
       let offsetTop = e.currentTarget.offsetTop + e.currentTarget.clientHeight + 25;
