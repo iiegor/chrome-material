@@ -45,7 +45,7 @@
       menu.append(new MenuItem({
         label: 'Settings',
         click: function() {
-          document.querySelector('browser-content').handleNewTab('Settings', 'internal://pages/settings.html');
+          document.querySelector('browser-content').createTab('Settings', 'internal://pages/settings.html');
         }
       }));
       menu.append(new MenuItem({type: 'separator'}));

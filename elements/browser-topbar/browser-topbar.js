@@ -9,7 +9,7 @@
 
     properties: {
       showIcons: {
-        value: !(process.platform === 'darwin')
+        value: process.platform !== 'darwin'
       }
     },
 

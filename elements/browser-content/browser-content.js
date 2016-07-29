@@ -7,6 +7,7 @@
     properties: {
       tabs: {
         type: Array,
+        value: [],
         notify: true
       },
 
@@ -18,13 +19,10 @@
 
     ready() {
       // TODO: Restore last session opened tabs (and create an option to disable that)
-      this.tabs = [this._createTab('Google', 'http://google.com')];
-
-      this._setSelected(0);
-      setImmediate(this._bindView.bind(this));
+      this.createTab('Google', 'http://google.com');
     },
 
-    _createTab(title, href) {
+    createTab(title, href) {
       let tab = {
         title: title,
         location: href,
@@ -32,7 +30,11 @@
         userAgent: navigator.userAgent.replace(`${process.app.name}/${process.app.version} `, '')
       };
 
-      return tab;
+      this.push('tabs', tab);
+
+      // set as selected and bind view events
+      this._setSelected(this.tabs.length - 1);
+      setImmediate(this._bindView.bind(this));
     },
 
     _setSelected(index) {
@@ -48,18 +50,12 @@
     },
 
     handleNewTab() {
-      let tab = this._createTab('New tab', 'https://google.com');
-
-      this.push('tabs', tab);
-
-      // set as selected and bind view events
-      this._setSelected(this.tabs.length - 1);
-      this._bindView();
+      this.createTab('New tab', 'https://google.com');
     },
 
     handleClose(e) {
       if (this.tabs.length === 1) {
-        document.querySelector('browser-topbar::shadow iron-icon[icon="cancel"]').click();
+        document.querySelector('browser-topbar::shadow .button.close').click();
         return;
       }
 
