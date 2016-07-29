@@ -1,7 +1,7 @@
 # Chrome Material Design [![Build Status](https://travis-ci.org/iiegor/chrome-material.svg?branch=master)](https://travis-ci.org/iiegor/chrome-material)
 
 <div style="text-align:center">
-  <img src="http://i.imgur.com/t1disyP.png">
+  <img src="https://drive.google.com/uc?export=view&id=0B9WchF8WhEn9TjNNa3RMSmdTOEU">
 </div>
 
 ## Features
