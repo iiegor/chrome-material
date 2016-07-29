@@ -29,7 +29,7 @@
         title: title,
         location: href,
         favicon: '',
-        userAgent: navigator.userAgent.replace(`Chrome/${process.versions.app} `, '')
+        userAgent: navigator.userAgent.replace(`${process.app.name}/${process.app.version} `, '')
       };
 
       return tab;

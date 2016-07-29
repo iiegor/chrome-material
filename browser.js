@@ -40,7 +40,8 @@ app.on('ready', function() {
     height: 800,
     minWidth: 500,
     minHeight: 200,
-    frame: false
+    frame: false,
+    titleBarStyle: 'hidden-inset'
   });
 
   // and load the index.html of the app.

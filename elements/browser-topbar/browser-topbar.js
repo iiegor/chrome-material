@@ -7,6 +7,12 @@
   Polymer({
     is: 'browser-topbar',
 
+    properties: {
+      showIcons: {
+        value: !(process.platform === 'darwin')
+      }
+    },
+
     handleExit() {
       remote.app.quit();
     },
