@@ -63,7 +63,7 @@
 
       // remove tab and select the previous tab
       this.splice('tabs', index, 1);
-      this._setSelected(index);
+      this._setSelected(this.tabs.length == index ? index - 1 : index);
     },
 
     _bindView() {
