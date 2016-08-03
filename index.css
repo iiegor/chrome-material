@@ -22,28 +22,6 @@ body.blur browser-topbar {
   background-color: #E9E9E9;
 }
 
-body browser-topbar {
-  justify-content: flex-end;
-}
-
-body browser-topbar::shadow .button {
-  padding: 4px 15px;
-  transition: background-color 0.1s;
-  -webkit-app-region: no-drag;
-}
-
-body browser-topbar::shadow .button:hover {
-  background-color: rgba(255, 255, 255, 0.129412);
-}
-
-body browser-topbar::shadow .button.close:hover {
-  background-color: rgb(232, 17, 35);
-}
-
-body browser-topbar::shadow .button.close:hover > svg > * {
-  fill: #fff;
-}
-
 body.blur browser-topbar::shadow .button > svg > * {
   fill: rgba(0,0,0,.3);
 }

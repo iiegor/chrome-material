@@ -63,7 +63,7 @@
 
       // remove tab and select the previous tab
       this.splice('tabs', index, 1);
-      this._setSelected(index - 1);
+      this._setSelected(index);
     },
 
     _bindView() {
@@ -89,6 +89,9 @@
         this.set(`tabs.${this.activeTab}.title`, e.title);
 
         document.title = e.title;
+
+        // Fire tab resize event
+        this.$.tabs.notifyResize();
       });
 
       this.currentView.addEventListener('page-favicon-updated', e => {

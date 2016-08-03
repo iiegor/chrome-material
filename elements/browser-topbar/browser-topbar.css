@@ -1,8 +1,27 @@
 :host {
   display: flex;
   border-bottom: 0;
-  height: 25px;
+  height: 30px;
   align-items: center;
+  justify-content: flex-end;
   background-color: #386FD3;
   -webkit-app-region: drag;
+}
+
+.button {
+  padding: 6px 17px;
+  transition: background-color 0.1s;
+  -webkit-app-region: no-drag;
+}
+
+.button:hover {
+  background-color: rgba(255, 255, 255, 0.129412);
+}
+
+.button.close:hover {
+  background-color: rgb(232, 17, 35);
+}
+
+.button.close:hover > svg > * {
+  fill: #fff;
 }
