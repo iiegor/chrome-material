@@ -26,6 +26,10 @@ body.blur browser-topbar::shadow .button > svg > * {
   fill: rgba(0,0,0,.3);
 }
 
+body.blur browser-topbar::shadow .button.close:hover > svg > * {
+  fill: #fff;
+}
+
 body.fullscreen browser-topbar,
 body.fullscreen browser-header,
 body.fullscreen browser-content::shadow nav {

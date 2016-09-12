@@ -3,7 +3,8 @@
 }
 
 nav {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   height: 40px;
   background-color: #F5F5F5;
@@ -15,8 +16,16 @@ nav {
 paper-tabs {
   display: inline-flex;
   height: 100%;
+  width: 100%;
 
   --paper-tabs-selection-bar-color: #58666F;
+  --paper-icon-button: {
+    color: #646464;
+  };
+}
+
+paper-tabs::shadow .not-visible {
+  display: none;
 }
 
 paper-tab  {
@@ -62,15 +71,16 @@ paper-spinner::shadow #spinnerContainer {
   width: 2px;
   vertical-align: middle;
   height: 45%;
-  margin-left: 35px;
+  margin-left: 20px;
 }
 
 .new-tab {
   color: #596774;
-  margin-left: -2px;
+  margin-left: 4px;
   padding-left: 3px;
   font-size: 13px;
   font-weight: 600;
+  width: 102px;
 }
 
 .new-tab iron-icon {

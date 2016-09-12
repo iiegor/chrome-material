@@ -20,6 +20,16 @@
     ready() {
       // TODO: Restore last session opened tabs (and create an option to disable that)
       this.createTab('Google', 'http://google.com');
+
+      window.addEventListener('resize', this._resize.bind(this));
+    },
+
+    _resize() {
+      const views = Polymer.dom(this.root).querySelectorAll('#view::shadow object');
+
+      views.forEach(view => {
+        // ..
+      });
     },
 
     createTab(title, href) {
